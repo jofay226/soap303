@@ -7,6 +7,11 @@ services:
       - "3000:3000"
     depends_on:
       - server
+    networks:
+      - frontend
+    volumes:
+      - ./client:/client
+      - /client/node_modules      
   server:
     build: ./server
     environment:
@@ -16,6 +21,12 @@ services:
       - db
     ports:
       - "4000:4000"
+    networks:
+      - frontend
+      - backend
+    volumes:
+      - ./server:/server
+      - /server/node_modules        
 
   db:
     image: postgres:16-alpine
@@ -27,9 +38,14 @@ services:
       - "5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data  
+    networks:
+      - backend    
   
 
 
 volumes:
   pgdata:
   
+networks:
+  frontend:
+  backend: 

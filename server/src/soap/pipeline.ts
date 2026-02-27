@@ -6,6 +6,6 @@ export const pipeline = (req: Request, res: Response) => {
     
 
 
-    res.json({message:"fkhsfksjd"})
+    res.json({message:"hello"})
 
 }

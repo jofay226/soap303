@@ -1,3 +1,3 @@
 export const listHandler = () => {
-        console.log('list handler');
+    console.log('list handler');
 }

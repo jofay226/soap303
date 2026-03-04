@@ -14,10 +14,13 @@ services:
       - ./client:/client
       - /client/node_modules      
   server:
+    env_file:
+      .env
     build: ./server
     environment:
        PORT: ${PORT}
        NODE_ENV: ${NODE_ENV}
+       DATABASE_URL: ${DATABASE_URL}
     depends_on:
       - db
     ports:

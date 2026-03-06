@@ -1,9 +1,8 @@
 import { dbService } from "../services/user.services.ts";
+import { buildSoapResponse } from "../soap/build.ts";
 
 export const listHandler =  async () => {
-   
    const users = await dbService.user.listUsers()
-  
-   
-   return users
+   const soapRes = buildSoapResponse(users, "listUserResponse")
+   return soapRes
 }

@@ -10,3 +10,7 @@ export const parseXml = async (xml: string) => {
     
     return {operationType, payload}
 }
+
+
+
+

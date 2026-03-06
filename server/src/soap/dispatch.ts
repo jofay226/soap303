@@ -5,12 +5,12 @@ import { updateHandler } from "../handlers/user.update.ts"
 
 
 
-export const dispatch = (operationType: any, payload:any) => {
+export const dispatch = async (operationType: any, payload:any) => {
     switch(operationType){
         case "createUserRequest":
             return createHandler(payload)
         case "listUserRequest":
-            return listHandler()
+            return await listHandler()
         case "deleteUserRequest":
             return deleteHandler(payload)
         case "updateUserRequest":

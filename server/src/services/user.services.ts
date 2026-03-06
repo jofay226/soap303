@@ -4,7 +4,8 @@ export const dbService = {
     user: {
         listUsers : async () => {
             const users = await prisma.user.findMany()
-            console.log(users);
+
+            return users
             
         },
         createUser : async () => {

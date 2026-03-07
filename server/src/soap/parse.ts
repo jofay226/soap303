@@ -6,7 +6,7 @@ export const parseXml = async (xml: string) => {
     const body = parsedData['soap:Envelope']['soap:Body']
    
     const operationType = Object.keys(body[0])[0]
-    const payload = body[0][operationType]
+    const payload = body[0][operationType][0]
     
     return {operationType, payload}
 }

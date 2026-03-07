@@ -1,7 +1,7 @@
 import {Builder} from 'xml2js';
 
 
-export const buildSoapResponse = (users, operationType) => {
+export const buildSoapResponse = (users : any, operationType: string) => {
     const build = new Builder({headless: true})
     const soap = {
         "soap:Envelope": {

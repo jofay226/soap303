@@ -8,8 +8,15 @@ export const dbService = {
             return users
             
         },
-        createUser : async () => {
-
+        createUser : async (payload) => {
+            const newUser = await prisma.user.create({
+                data: {
+                    name: payload.name[0],
+                    age: +payload.age[0],
+                    email: payload.email[0]
+                }
+            })
+            return  newUser
         }
     }
 

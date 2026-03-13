@@ -1,11 +1,17 @@
 "use client";
 import { useEffect } from "react";
 import axios from "axios";
-import {} from "xml2js";
+import { parseStringPromise, Builder } from "xml2js";
+import { headers } from "next/headers";
 
 export default function Home() {
-  const getAllUsers = () => {
-    console.log("kdfsjgksjgfgjskdh");
+
+  const getAllUsers = async () => {
+    const res = await axios.post("http://localhost:4000/api/soap", ,{
+      headers: {
+        "Content-type": "text/xml"
+      }
+    });
   };
 
   useEffect(() => {

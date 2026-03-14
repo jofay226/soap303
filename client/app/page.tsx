@@ -1,17 +1,30 @@
 "use client";
 import { useEffect } from "react";
 import axios from "axios";
-import { parseStringPromise, Builder } from "xml2js";
-import { headers } from "next/headers";
+// import { parseStringPromise, Builder } from "xml2js";
 
 export default function Home() {
+  const getReqFormat = `
+    <soap:Envelope xmlns:soap="https://schemas.xmlsoap.org/soap/envelope/">
+      <soap:Body>
+          <listUserRequest>
+          </listUserRequest>
+      </soap:Body>
+    </soap:Envelope>
+  `;
 
   const getAllUsers = async () => {
-    const res = await axios.post("http://localhost:4000/api/soap", ,{
-      headers: {
-        "Content-type": "text/xml"
-      }
-    });
+    const res = await axios.post(
+      "http://localhost:4000/api/soap",
+      getReqFormat,
+      {
+        headers: {
+          "Content-type": "text/xml",
+        },
+      },
+    );
+
+    console.log(res);
   };
 
   useEffect(() => {

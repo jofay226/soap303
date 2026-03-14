@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import axios from "axios";
-// import { parseStringPromise, Builder } from "xml2js";
+import { parseStringPromise } from "xml2js";
 
 export default function Home() {
   const getReqFormat = `
@@ -23,8 +23,8 @@ export default function Home() {
         },
       },
     );
-
-    console.log(res);
+    const parsedData = await parseStringPromise(res.data);
+    console.log(parsedData);
   };
 
   useEffect(() => {
